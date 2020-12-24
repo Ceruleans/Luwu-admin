@@ -92,12 +92,13 @@
         </div>
     </header>
     <div class="content">
-        <!-- 加载动画 -->
-        <div id="main-loading" class="main-loading">
-            <div class="spinner-border" role="status"></div>
-        </div>
         <!-- 页面内容加载在这里 -->
-        <div id="main-container" class="container-xl"></div>
+        <div id="main-container" class="container-xl">
+            <!-- 加载动画 -->
+            <div id="main-loading" class="main-loading">
+                <div class="spinner-border" role="status"></div>
+            </div>
+        </div>
         <footer class="footer footer-transparent d-print-none">
             <div class="container">
                 <div class="row text-center align-items-center flex-row-reverse">
@@ -105,6 +106,9 @@
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
                                 Copyright &copy; 2021 东莞重力科技有限公司.版权所有
+                            </li>
+                            <li class="list-inline-item">
+                                企业版 v1.0
                             </li>
                         </ul>
                     </div>
@@ -156,7 +160,6 @@
             menus: menus,
             breadcrumbId: "breadcrumb-menu"
         });
-
         //点击首页
         // $.loadPage()
         // menu.addTabs(1, "首页", "/welcome", false);

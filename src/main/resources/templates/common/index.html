@@ -26,30 +26,11 @@
 <!-- 基础公共文件尾部引入(tabler、bootstrap、jquery、layer弹框等) -->
 <div th:fragment="common_footer" th:remove="tag">
     <script th:src="@{/static/jquery/jquery.min.js}"></script>
-    <script th:src="@{/static/tabler/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/static/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/static/tabler/js/tabler.min.js}"></script>
     <script th:src="@{/static/layer/layer.js}"></script>
     <script th:src="@{/static/menu/js/sidebar-menu.js}"></script>
     <script th:src="@{/static/common/js/index.js}"></script>
-</div>
-
-<!-- datatables表格头部引入 -->
-<div th:fragment="common_datatable_head" th:remove="tag">
-    <link rel="stylesheet" th:src="@{/static/datatables/css/datatables.min.css}" />
-    <link rel="stylesheet" th:src="@{/static/datatables/css/dataTables.bootstrap4.min.css}" />
-    <link rel="stylesheet" th:src="@{/static/datatables/css/jquery.dataTables.min.css}" />
-    <link rel="stylesheet" th:src="@{/static/datatables/css/dataTables.foundation.min.css}" />
-    <link rel="stylesheet" th:src="@{/static/datatables/css/dataTables.semanticui.min.css}" />
-</div>
-
-<!-- datatables表格尾部引入 -->
-<div th:fragment="common_datatable_footer" th:remove="tag">
-    <script th:src="@{/static/datatables/js/datatables.min.js}"></script>
-    <script th:src="@{/static/datatables/js/jquery.dataTables.min.js}"></script>
-    <script th:src="@{/static/datatables/js/dataTables.bootstrap4.min.js}"></script>
-    <script th:src="@{/static/datatables/js/dataTables.foundation.min.js}"></script>
-    <script th:src="@{/static/datatables/js/dataTables.semanticui.min.js}"></script>
-    <script th:src="@{/static/datatables/js/dataTables.select.min.js}"></script>
 </div>
 
 <!-- plugins css -->

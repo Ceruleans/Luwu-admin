@@ -42,15 +42,11 @@
 
 /** 加载动画 **/
 .main-loading {
-    position: absolute;
-    left: 60%;
-    top: 50%;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
 }
-/*.main-loading .spinner-grow {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}*/
+.main-loading .spinner-* {}
 
 /** 页脚 **/
 .footer {

@@ -99,18 +99,20 @@
                     return;
                 }
                 // 请求页面
-                $("#" + this_.loadId).show()
+                $("#" + this_.options.loadId).show();
+                //$("#" + this_.options.mainId).empty();
+                // 点击设置状态
+                this_.clickState(
+                    e,
+                    this_.options.idPrefix,
+                    this_.options.customizeName,
+                    this_.options.breadcrumbId
+                );
+
                 $.get(e.data("menu")[this_.options.customizeName.url], function (result) {
-                    // 点击设置状态
-                    this_.clickState(
-                        e,
-                        this_.options.idPrefix,
-                        this_.options.customizeName,
-                        this_.options.breadcrumbId
-                    );
-                    $("#" + this_.loadId).hide()
+                    $("#" + this_.options.loadId).hide();
                     // 设置内容
-                    $("#" + this_.mainId).html(result);
+                    //$("#" + this_.options.mainId).html(result);
                 });
             });
 
@@ -138,12 +140,17 @@
             }
             ol_.append('<li class="breadcrumb-item active" aria-current="page">' + e.data("menu")[customizeName.name] + '</li>');
 
-            var breadcrumb_ = $("#" + breadcrumbId);
+            /*var breadcrumb_ = $("#" + breadcrumbId);
             breadcrumb_.animate({ left: '50px', opacity: 'toggle' }, "fast", function () {
                 breadcrumb_.empty();
                 breadcrumb_.append(ol_);
                 breadcrumb_.animate({ left: '0', opacity: 'toggle' }, "fast");
-            });
+            });*/
+            var breadcrumb_ = $("#" + breadcrumbId);
+            breadcrumb_.toggle();
+            breadcrumb_.empty();
+            breadcrumb_.append(ol_);
+            breadcrumb_.toggle();
         },
         tools: {
             //返回16位guid
