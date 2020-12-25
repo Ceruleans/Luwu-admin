@@ -92,13 +92,12 @@
         </div>
     </header>
     <div class="content">
-        <!-- 页面内容加载在这里 -->
-        <div id="main-container" class="container-xl">
-            <!-- 加载动画 -->
-            <div id="main-loading" class="main-loading">
-                <div class="spinner-border" role="status"></div>
-            </div>
+        <!-- 加载动画 -->
+        <div id="main-loading" class="main-loading">
+            <div class="spinner-border" role="status"></div>
         </div>
+        <!-- 页面内容加载在这里 -->
+        <div id="main-container" class="container-xl"></div>
         <footer class="footer footer-transparent d-print-none">
             <div class="container">
                 <div class="row text-center align-items-center flex-row-reverse">
@@ -134,7 +133,7 @@
             children: [{
                 id: 2,
                 name: "用户管理",
-                url: "/dashboard",
+                url: "/system/users/index.html",
             }, {
                 id: 3,
                 name: "角色管理",
@@ -155,14 +154,12 @@
                 url: "/dashboard",
             }]
         }]
+
         //初始化菜单栏
         $("#navbar-menu").sidebarMenu({
             menus: menus,
             breadcrumbId: "breadcrumb-menu"
         });
-        //点击首页
-        // $.loadPage()
-        // menu.addTabs(1, "首页", "/welcome", false);
     });
 
 

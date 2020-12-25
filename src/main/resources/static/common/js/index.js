@@ -8,21 +8,24 @@
     $.extend({
 
         index : {
-            //子跳转页面方法
+            // 子跳转页面方法
             loadPage: function (url, successCallback) {
-                var index = layer.load(2, { shade: 0.2 });
+                // 显示加载框
+                $.index.contentLoading();
+                $("#main-container").empty();
                 $.get(url, function (result) {
-                    $("#main-container").html(result);
                     if (successCallback && typeof(successCallback) === "function") {
                         successCallback()
                     }
-                    layer.close(index);
+                    // 隐藏加载框
+                    $.index.contentLoading();
+                    $("#main-container").html(result);
                 });
             },
 
-            //返回方法
-            returnPage: function (url) {
-
+            // 加载框显示/隐藏
+            contentLoading: function () {
+                $("#main-loading").toggle();
             },
         }
 

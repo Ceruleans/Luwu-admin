@@ -99,8 +99,8 @@
                     return;
                 }
                 // 请求页面
-                $("#" + this_.options.loadId).show();
-                //$("#" + this_.options.mainId).empty();
+                $("#" + this_.options.loadId).toggle();
+                $("#" + this_.options.mainId).empty();
                 // 点击设置状态
                 this_.clickState(
                     e,
@@ -110,9 +110,9 @@
                 );
 
                 $.get(e.data("menu")[this_.options.customizeName.url], function (result) {
-                    $("#" + this_.options.loadId).hide();
+                    $("#" + this_.options.loadId).toggle();
                     // 设置内容
-                    //$("#" + this_.options.mainId).html(result);
+                    $("#" + this_.options.mainId).html(result);
                 });
             });
 

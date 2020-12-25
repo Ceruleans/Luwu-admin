@@ -33,34 +33,23 @@ public class UserController extends BaseController {
     private UserService userService;
 
     /**
-     * 用户页面
-     * @param model
-     * @return
-     */
-    @PreAuthorize("hasAuthority('system:users:index')")
-    @GetMapping("/index.html")
-    public String index(Model model) {
-        return "/user/index";
-    }
-
-    /**
      * 列表页面
      * @return
      */
-    @PreAuthorize("hasAuthority('system:users:list')")
-    @GetMapping("/list.html")
-    public String list(){
-        return "/user/list";
+    //@PreAuthorize("hasAuthority('system:users:indexUI')")
+    @GetMapping("/index.html")
+    public String indexUI(){
+        return "/module/system/user/index";
     }
 
     /**
      * 表单页面
      * @return
      */
-    @PreAuthorize("hasAuthority('system:users:form')")
+    //@PreAuthorize("hasAuthority('system:users:formUI')")
     @GetMapping("/form.html")
-    public String form() {
-        return "/user/form";
+    public String formUI() {
+        return "/module/system/user/form";
     }
 
     /**
@@ -68,7 +57,7 @@ public class UserController extends BaseController {
      * @param pager
      * @return
      */
-    @PreAuthorize("hasAuthority('system:users:list:post')")
+    //@PreAuthorize("hasAuthority('system:users:list:post')")
     @PostMapping("/list")
     @ResponseBody
     public Result<Pager> userList(@RequestBody Pager pager) {
@@ -82,10 +71,10 @@ public class UserController extends BaseController {
      * @param parameters
      * @return
      */
-    @PreAuthorize("hasAuthority('system:users:get')")
+    //@PreAuthorize("hasAuthority('system:users:get')")
     @GetMapping
     @ResponseBody
-    public Result<List<UserEntity>> userList(@RequestParam Map<String, Object> parameters) {
+    public Result<List<UserEntity>> list(@RequestParam Map<String, Object> parameters) {
         List<UserEntity> userEntityList = this.userService.findBy(parameters);
         return ResultUtil.success(userEntityList);
     }
@@ -95,7 +84,7 @@ public class UserController extends BaseController {
      * @param userId
      * @return
      */
-    @PreAuthorize("hasAuthority('system:users:user')")
+    //@PreAuthorize("hasAuthority('system:users:user')")
     @GetMapping("/{userId}")
     @ResponseBody
     public Result<UserEntity> findById(@PathVariable("userId") Long userId) {
