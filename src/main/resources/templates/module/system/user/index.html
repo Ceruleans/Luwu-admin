@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zn">
 <head>
     <title th:block>用户列表</title>
-    <link th:href="@{/static/bootstrap/css/bootstrap-table.min.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="row row-deck row-cards">
@@ -18,66 +17,14 @@
             <div class="card-header">
                 <h3 class="card-title">用户列表</h3>
             </div>
-            <table
-                    id="dataTable"
-                    class="table card-table table-vcenter text-nowrap datatable">
-            </table>
+            <table id="dataTable"></table>
         </div>
     </div>
 </div>
-<script th:src="@{/static/bootstrap/js/bootstrap-table.min.js}"></script>
-<script th:src="@{/static/bootstrap/js/bootstrap-table-locale-all.min.js}"></script>
-<script th:src="@{/static/bootstrap/js/bootstrap-table-zh-CN.min.js}"></script>
 <script type="text/javascript" th:inline="javascript">
 
     $(function () {
 
-        var data =
-            [{
-                checkbox: true,
-                visible: true,
-                align:" 'center'",
-            }, {
-                field: "username",
-                title: "用户名"
-            }, {
-                field: "phone",
-                title: "电话"
-            }, {
-                field: "email",
-                title: "邮箱"
-            },{
-                title: '操作',
-                width: 120,
-                align: 'center',
-                valign: 'middle',
-            }]
-
-        $("#dataTable").bootstrapTable({
-            method: "post",
-            columns: data,
-            url: "/system/users/list",
-            sidePagination: "server",
-            pagination : true,
-            pageNumber: 1,
-            pageSize: 10,
-            pageList: [10, 25, 50, 100],
-            //得到查询的参数
-            queryParams : function(params) {
-                var pager = {
-                    pageSize: 10,
-                    pageNum: (params.offset / params.limit) + 1
-                    // orderBy: params.sort + params.order
-                };
-                return pager;
-            },
-            responseHandler: function(res) {
-                //在ajax获取到数据，渲染表格之前，修改数据源
-                res = { total: res.total, rows: res.data };
-                console.log(res);
-                return res;
-            }
-        });
     })
 </script>
 </body>
